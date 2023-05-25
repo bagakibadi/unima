@@ -1,0 +1,18 @@
+:root {
+  --warna-garis: #da251d;
+  --color-text-garis: #da253d;
+}
+.hidden-child-sidebar {
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.test {
+  transition: all 0.5s;
+}
+.parent-sidebar:hover .hidden-child-sidebar {
+  opacity: 1;
+  height: auto;
+}
