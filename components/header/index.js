@@ -18,9 +18,9 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href="http://koran.humas.ugm.ac.id/" title="Arsip Berita">
+                <Link href="/berita" title="Arsip Berita">
                   Berita
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="https://lms.unima.ac.id/" title="Simaster">

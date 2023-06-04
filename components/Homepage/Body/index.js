@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SambutanRektor } from '../SambutanRektor';
 import { Statistic } from '../Statistic';
 import { Berita } from '../Berita';
 import Agenda from '../Agenda';
+import axios from 'axios';
 
 const BodyHomepage = () => {
+  const [dataAgenda, setDataAgenda] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda/highlight'
+        );
+        setDataAgenda(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
   const dataRektor = {
     name: 'Prof. Dr. Deitje A. Katuuk, M.Pd',
     subtitle:
@@ -39,40 +56,6 @@ const BodyHomepage = () => {
     ],
   };
 
-  const dataBerita = [
-    {
-      title: 'UNIMA Jadi Peserta Terbanyak Lolos PIMNAS 2023',
-      description:
-        'Perkembangan teknologi digital berjalan begitu pesat dan masif membawa pengaruh dalam berbagai aspek kehidupan. Salah satunya budaya membaca buku yang mengalami perubahan besar di era digital saat ini.',
-      date: '18 Mei 2023',
-      image: 'https://unima.ac.id/uploads/img_berita/1656386925905.jpg',
-      link: '#',
-    },
-    {
-      title: 'UNIMA Jadi Peserta Terbanyak Lolos PIMNAS 2023',
-      description:
-        'Perkembangan teknologi digital berjalan begitu pesat dan masif membawa pengaruh dalam berbagai aspek kehidupan. Salah satunya budaya membaca buku yang mengalami perubahan besar di era digital saat ini.',
-      date: '18 Mei 2023',
-      image: 'https://unima.ac.id/uploads/img_berita/1656386925905.jpg',
-      link: '#',
-    },
-    {
-      title: 'UNIMA Jadi Peserta Terbanyak Lolos PIMNAS 2023',
-      description:
-        'Perkembangan teknologi digital berjalan begitu pesat dan masif membawa pengaruh dalam berbagai aspek kehidupan. Salah satunya budaya membaca buku yang mengalami perubahan besar di era digital saat ini.',
-      date: '18 Mei 2023',
-      image: 'https://unima.ac.id/uploads/img_berita/1656386925905.jpg',
-      link: '#',
-    },
-    {
-      title: 'UNIMA Jadi Peserta Terbanyak Lolos PIMNAS 2023',
-      description:
-        'Perkembangan teknologi digital berjalan begitu pesat dan masif membawa pengaruh dalam berbagai aspek kehidupan. Salah satunya budaya membaca buku yang mengalami perubahan besar di era digital saat ini.',
-      date: '18 Mei 2023',
-      image: 'https://unima.ac.id/uploads/img_berita/1656386925905.jpg',
-      link: '#',
-    },
-  ];
   return (
     <div id="body">
       <div class="homepage homepage-id">
@@ -95,13 +78,13 @@ const BodyHomepage = () => {
         <SambutanRektor data={dataRektor} />
 
         {/* Import Component Berita Homepage */}
-        <Berita data={dataBerita} />
+        <Berita />
 
         {/* Import Component Data Statistic Homepage */}
         <Statistic data={dataStatic} />
 
         {/* Import Component Data Agenda Event Homepage */}
-        <Agenda />
+        {dataAgenda ? <Agenda /> : <p>Loading...</p>}
       </div>
     </div>
   );

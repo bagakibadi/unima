@@ -11,7 +11,7 @@ const CardSidebar = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          'https://unima-be-dev.luckymedical.co.id/api/about'
+          process.env.NEXT_PUBLIC_SIDEBAR + 'about'
         );
         setData(response.data);
       } catch (error) {

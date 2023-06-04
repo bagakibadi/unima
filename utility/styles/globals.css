@@ -16,3 +16,23 @@
   opacity: 1;
   height: auto;
 }
+
+.line-lamp-3 {
+  display: -webkit-box;
+  overflow: hidden !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.line-lamp-3 > *:not(:first-child) {
+  display: none !important;
+}
+.child.line-lamp-3 > * {
+  display: -webkit-box;
+  overflow: hidden !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.post-content {
+  padding: 10px;
+}

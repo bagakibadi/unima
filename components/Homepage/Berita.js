@@ -1,8 +1,25 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardNewsHome from '../Card/CardNewsHome';
+import axios from 'axios';
+import CustomDate from '../CustomDate';
 
-export const Berita = ({ data }) => {
+export const Berita = () => {
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/highlight'
+        );
+        setData(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
   // Render Berita Homepage
   const renderBerita = (data) => {
     return data.map((items, idx) => (
@@ -11,23 +28,33 @@ export const Berita = ({ data }) => {
           <div className="col-md-12 col-sm-12">
             <article class="container-fluid post post-block" key={items.id}>
               <div class="post-img">
-                <Link href={items.link}>
+                <Link href={'/berita/detail/' + items.id}>
                   <img src={items.image} alt={items.title} />
                 </Link>
               </div>
               <div class="post-content">
                 <div class="post-title">
-                  <span class="post-date">{items.date}</span>
+                  <span class="post-date">
+                    <CustomDate
+                      dateTime={items.created_at}
+                      formatPattern={'dd MMM yyyy'}
+                    />
+                  </span>
                   <h3>
-                    <Link href={items.link}>{items.title}</Link>
+                    <Link href={'/berita/detail/' + items.id}>
+                      {items.title}
+                    </Link>
                   </h3>
                 </div>
                 <div class="entry-content">
-                  <p>{items.description}</p>
-                  <Link href={items.link} class="btn btn-more">
-                    Baca selengkapnya
-                  </Link>
+                  <div
+                    className="child line-lamp-3"
+                    dangerouslySetInnerHTML={{ __html: items.content }}
+                  ></div>
                 </div>
+                <Link href={'/berita/detail/' + items.id} class="btn btn-more">
+                  Baca selengkapnya
+                </Link>
               </div>
             </article>
           </div>
@@ -49,7 +76,7 @@ export const Berita = ({ data }) => {
         <div class="section-title">
           <h2>Rilis Berita</h2>
         </div>
-        {renderBerita(data)}
+        {data ? renderBerita(data) : <p>Loading..</p>}
         <div class="text-center btn-box no-border">
           <Link href="/berita" class="btn btn-more">
             Berita Selengkapnya

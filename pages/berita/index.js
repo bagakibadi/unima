@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CardBerita from '../../components/Card/CardBerita';
 import Header from '../../components/header';
 import Footer from '../../components/Footer';
+import axios from 'axios';
 
 const Berita = () => {
-  const dataBerita = {
-    title: 'UNIMA Jadi Peserta Terbanyak Lolos PIMNAS 2023',
-    description:
-      'Perkembangan teknologi digital berjalan begitu pesat dan masif membawa pengaruh dalam berbagai aspek kehidupan. Salah satunya budaya membaca buku yang mengalami perubahan besar di era digital saat ini.',
-    date: '18 Mei 2023',
-    image: 'https://unima.ac.id/uploads/img_berita/1656386925905.jpg',
-    link: '/',
-  };
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/list'
+        );
+        setData(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
 
   const renderAllBerita = () => {
-    const list = [];
-    for (let i = 0; i < 10; i++) {
-      list.push(
-        <div class="col-md-4 col-xs-6">
-          <CardBerita data={dataBerita} />
-        </div>
-      );
-    }
-    return list;
+    return data.data.map((obj, idx) => (
+      <div class="col-md-4 col-xs-6">
+        <CardBerita data={obj} />
+      </div>
+    ));
   };
   return (
     <>
@@ -32,7 +36,9 @@ const Berita = () => {
           <div class="section-title">
             <h3>Semua Berita</h3>
           </div>
-          <div class="row wrap">{renderAllBerita()}</div>
+          <div class="row wrap">
+            {data ? renderAllBerita() : <p>Loading...</p>}
+          </div>
         </div>
       </section>
     </>
