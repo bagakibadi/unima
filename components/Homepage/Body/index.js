@@ -4,8 +4,11 @@ import { Statistic } from '../Statistic';
 import { Berita } from '../Berita';
 import Agenda from '../Agenda';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const BodyHomepage = () => {
+  const router = useRouter();
+
   const [dataAgenda, setDataAgenda] = useState(null);
 
   useEffect(() => {
@@ -56,26 +59,53 @@ const BodyHomepage = () => {
     ],
   };
 
+  const search = (e) => {
+    e.preventDefault();
+    router.push('/search');
+  };
+
   return (
     <div id="body">
       <div class="homepage homepage-id">
         <section class="section-page top schome-hero schome-hero--video">
           <div id="home-video" class="schome-hero__video">
-            <img
-              class="unima-jumbotron"
-              src="https://unima.ac.id/uploads/img_galeri/1650442822042.jpg"
-              style={{ objectFit: 'contain', backgroundColor: 'white' }}
-              width="100%"
-              height="100%"
-            />
+            <video width="100%" height="100%" muted="muted" autoPlay>
+              <source src="/video/videoprofile.webm" type="video/webm" />
+              <source src="/video/videoprofile.mp4" type="video/mp4" />
+            </video>
           </div>
 
-          <div class="schome-hero__logotitle text-center">
-            <h1>UNIVERSITAS NEGERI MANADO</h1>
+          <div class="schome-hero__logotitle text-center"></div>
+        </section>
+
+        <section className="search-section">
+          <div className="container" style={{ height: '100%' }}>
+            <div
+              className="row wrap justify-content-center align-items-center"
+              style={{ height: '100%', flexDirection: 'column' }}
+            >
+              <div class="section-title">
+                <h3 className="search-title">Explore UNIMA</h3>
+              </div>
+              <form
+                onSubmit={(e) => search(e)}
+                className="search-form col-md-4 mb-6"
+              >
+                <div class="input-group-lg input-group form-group btn-group btn-group-lg">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="s"
+                    placeholder="Search ..."
+                  />
+                  <button type="submit" class="btn">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </section>
-        {/* Import Component Sambutan Rektor Homepage*/}
-        <SambutanRektor data={dataRektor} />
 
         {/* Import Component Berita Homepage */}
         <Berita />
@@ -84,7 +114,10 @@ const BodyHomepage = () => {
         <Statistic data={dataStatic} />
 
         {/* Import Component Data Agenda Event Homepage */}
-        {dataAgenda ? <Agenda /> : <p>Loading...</p>}
+        {dataAgenda ? <Agenda data={dataAgenda} /> : <p>Loading...</p>}
+
+        {/* Import Component Sambutan Rektor Homepage*/}
+        <SambutanRektor data={dataRektor} />
       </div>
     </div>
   );

@@ -4,136 +4,6 @@ import BodyHomepage from '../components/Homepage/Body';
 import Footer from '../components/Footer';
 // import Navbar from '../components/Navbar/index'
 export default function Home() {
-  const dataFooter = [
-    {
-      name: 'Layanan Publik',
-      data: [
-        {
-          name: 'Pddikti',
-          link: 'https://pddikti.kemdikbud.go.id/',
-        },
-        {
-          name: 'SDM',
-          link: 'https://dikti.kemdikbud.go.id/layanan-sumber-daya/',
-        },
-        {
-          name: 'Kelembagaan',
-          link: 'https://dikti.kemdikbud.go.id/layanan-kelembagaan/',
-        },
-        {
-          name: 'Pembelajaran & Kemahasiswaan',
-          link: 'https://dikti.kemdikbud.go.id/layanan-pembelajaran-dan-kemahasiswaan/',
-        },
-        {
-          name: 'Bidikmisi Belmawa',
-          link: 'https://bidikmisi.belmawa.ristekdikti.go.id/',
-        },
-        {
-          name: 'Perpustakaan Nasional',
-          link: 'https://e-resources.perpusnas.go.id/',
-        },
-      ],
-    },
-    {
-      name: 'Unit Pelaksana Teknis',
-      data: [
-        {
-          name: 'PUSKOM',
-          link: '/test',
-        },
-        {
-          name: 'PPL',
-          link: '',
-        },
-        {
-          name: 'Perpustakaan',
-          link: '',
-        },
-        {
-          name: 'Klinik',
-          link: '',
-        },
-      ],
-    },
-    {
-      name: 'Lembaga & Biro',
-      data: [
-        {
-          name: 'BAPKSI',
-          link: '',
-        },
-        {
-          name: 'BAAK',
-          link: '',
-        },
-        {
-          name: 'BAUK',
-          link: '',
-        },
-        {
-          name: 'LPPM',
-          link: '',
-        },
-        {
-          name: 'LPIK',
-          link: '',
-        },
-        {
-          name: 'LP3M',
-          link: '',
-        },
-      ],
-    },
-    {
-      name: 'Tautan Cepat',
-      data: [
-        {
-          name: 'Portal Akademik',
-          link: '',
-        },
-        {
-          name: 'Portal Alumni',
-          link: '',
-        },
-        {
-          name: 'Portal Riset',
-          link: '',
-        },
-        {
-          name: 'Portal Admisi',
-          link: '',
-        },
-        {
-          name: 'Pangkalan Data',
-          link: '',
-        },
-        {
-          name: 'Sister',
-          link: '',
-        },
-        {
-          name: 'Info Admisi',
-          link: '',
-        },
-        {
-          name: 'Arsip',
-          link: '',
-        },
-        {
-          name: 'Pddikti',
-          link: '',
-        },
-        {
-          name: 'Schoolar',
-          link: '',
-        },
-        {
-          name: 'Program Mapalus Unggul',
-          link: '',
-        },
-      ],
-    },
-  ];
   return (
     <div>
       <Head>
@@ -144,7 +14,7 @@ export default function Home() {
       {/* <!-- HEADER --> */}
       <Header />
       <BodyHomepage />
-      <Footer data={dataFooter} />
+      <Footer />
     </div>
   );
 }

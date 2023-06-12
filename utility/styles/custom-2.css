@@ -9257,10 +9257,14 @@ a img.aligncenter {
   padding-bottom: 0;
   margin-bottom: 20px;
   /* block*/
+  transition: .3s all;
+}
+.news-event .post:hover {
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   overflow: hidden;
 }
+
 .news-event .post .post-title h3 {
   font-size: 18px;
   line-height: 24px;

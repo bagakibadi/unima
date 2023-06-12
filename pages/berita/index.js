@@ -41,6 +41,7 @@ const Berita = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };

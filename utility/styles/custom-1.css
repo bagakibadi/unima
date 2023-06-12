@@ -142,6 +142,12 @@
 
 .schome-hero__logotitle {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .schome-hero__logotitle h1 {
   max-width: 100%;

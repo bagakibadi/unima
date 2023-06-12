@@ -1,5 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
@@ -13,9 +11,9 @@ export default function Header() {
             </button>
             <ul className="nav navbar-nav">
               <li>
-                <a href="https://www.ugm.ac.id/id/berita" title="Berita">
+                <Link href="#" title="Berita">
                   Kuliah di UNIMA
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/berita" title="Arsip Berita">
@@ -23,35 +21,32 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <a href="https://lms.unima.ac.id/" title="Simaster">
+                <Link href="https://lms.unima.ac.id/" target="_blank">
                   LMS
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="https://mbkm.unima.ac.id/" title="Webmail">
+                <Link target="_blank" href="https://mbkm.unima.ac.id/">
                   MBKM
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="http://ugm.ac.id/id/directory" title="Direktori">
+                <Link target="_blank" href="http://rpl.unima.ac.id/">
                   RPL
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://ugm.ac.id/id/node/3686-kabar-ugm"
-                  title="Kabar UGM"
-                >
+                <Link target="_blank" href="https://covid19.go.id/id">
                   Info Covid-19
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="https://ugm.ac.id/id/arsip/suara-bulaksumur"
-                  title="Suara Bulaksumur"
+                <Link
+                  target="_blank"
+                  href="https://bapksi.unima.ac.id/bank_data/"
                 >
                   DEIUNIMA
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -96,7 +91,7 @@ export default function Header() {
               <Link href="/tentang">PROFIL</Link>
             </li>
             <li>
-              <Link href="https://www.ugm.ac.id/id/pendidikan">PENDIDIKAN</Link>
+              <Link href="/pendidikan">PENDIDIKAN</Link>
             </li>
             <li class="dropdown">
               <a href="#" class="">
@@ -121,13 +116,13 @@ export default function Header() {
               <Link href="/pengabdian">PENGABDIAN</Link>
             </li>
             <li>
-              <a href="https://www.ugm.ac.id/id/pengabdian">PENDAFTARAN</a>
+              <a href="/pendaftaran">PENDAFTARAN</a>
             </li>
             <li>
-              <a href="http://um.ugm.ac.id/">MAHASISWA & ALUMNI</a>
+              <a href="/mahasiswa-alumni">MAHASISWA & ALUMNI</a>
             </li>
             <li>
-              <a href="http://um.ugm.ac.id/">STAFF</a>
+              <a href="/staff">STAFF</a>
             </li>
           </ul>
         </nav>

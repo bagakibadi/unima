@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../../components/header';
-import ShareMedia from '../../../components/Berita/ShareMedia';
 import ContentBerita from '../../../components/Berita/ContentBerita';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+import Footer from '../../../components/Footer';
+import ShareMedia from '../../../components/Utility/ShareMedia';
 
 const id = () => {
   const router = useRouter();
@@ -53,6 +54,7 @@ const id = () => {
           <ShareMedia left={true} />
         </div>
       </div>
+      <Footer />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header';
 import CardSidebar from '../../components/Card/CardSidebar';
+import Footer from '../../components/Footer';
 
 const Tentang = () => {
   return (
@@ -27,6 +28,7 @@ const Tentang = () => {
         </div>
       </section>
       <CardSidebar />
+      <Footer />
     </>
   );
 };

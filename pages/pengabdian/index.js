@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../../components/header';
-import CardSidebar from '../../components/Card/CardSidebar';
+import Footer from '../../components/Footer';
+import ContentPengabdian from '../../components/pengabdian/ContentPengabdian';
 
 const Pengabdian = () => {
   return (
@@ -17,16 +18,20 @@ const Pengabdian = () => {
           <div class="about-content">
             <div class="section-box">
               <div class="section-title">
-                <h2>Tentang UNIMA</h2>
+                <h2>Pengabdian Masyarakat di UNIMA</h2>
               </div>
               <div class="section-subtitle">
-                Visi UNIMA "Unima Unggul dan Inovatif berdasarkan Mapalus."
+                Tujuan pengabdian kepada masyarakat adalah untuk memberikan
+                solusi terhadap permasalahan yang dihadapi oleh masyarakat.
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* <CardSidebar /> */}
+
+      <ContentPengabdian />
+
+      <Footer />
     </>
   );
 };

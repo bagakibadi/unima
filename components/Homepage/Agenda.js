@@ -17,6 +17,7 @@ function SampleArrow(props) {
 
 const Agenda = ({ data }) => {
   const [dataAgenda, setDataAgenda] = useState(data);
+  console.log(dataAgenda);
   const renderAgenda = () => {
     return dataAgenda.map((obj, idx) => (
       <div
@@ -38,7 +39,7 @@ const Agenda = ({ data }) => {
           </span>
         </h4>
         <h4 class="event-title">
-          <Link href="#" tabindex="0">
+          <Link href={'/agenda/detail/' + obj.id} tabindex="0">
             {obj.title}
           </Link>
         </h4>
@@ -81,8 +82,8 @@ const Agenda = ({ data }) => {
           {dataAgenda ? renderAgenda() : <p>Loading...</p>}
         </Slider>
         <div class="text-center btn-box no-border">
-          <Link href="id/agenda/listAgenda.html" class="btn btn-more">
-            LIHAT SEMUA EVENT
+          <Link href="/agenda" class="btn btn-more">
+            LIHAT SEMUA AGENDA
           </Link>
         </div>
       </div>

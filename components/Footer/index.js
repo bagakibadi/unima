@@ -1,15 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 
-const Footer = ({ data }) => {
+const Footer = () => {
+  const [dataFooter, setDataFooter] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_SIDEBAR + 'footer'
+        );
+        setDataFooter(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
   // Render Footer List Title
   const renderFooter = () => {
-    return data.map((items) => (
+    return dataFooter.map((items) => (
       <div className="col-md-3 col-sm-6 widget" key={items.id}>
         <div className="widget-header">
-          <h3 className="widget-title">{items.name}</h3>
+          <h3 className="widget-title">{items.title}</h3>
         </div>
-        <div className="menu-footer">{renderLi(items.data)}</div>
+        <div className="menu-footer">{renderLi(items.children)}</div>
       </div>
     ));
   };
@@ -20,7 +37,7 @@ const Footer = ({ data }) => {
       <ul id="menu-footer-pages" className="menu">
         {dataLi.map((items) => (
           <li key={items.id}>
-            <Link href={items.link}>{items.name}</Link>
+            <Link href={items.link}>{items.title}</Link>
           </li>
         ))}
       </ul>
@@ -89,7 +106,7 @@ const Footer = ({ data }) => {
           <div className="container">
             <div className="row">
               <div className="col-md-3 col-sm-5 footer-brand-wrapper">
-                <a href="https://www.ugm.ac.id/" class="footer-brand">
+                <a href="/" class="footer-brand">
                   <img
                     width="90px"
                     src="/images/logo.png"
@@ -113,7 +130,9 @@ const Footer = ({ data }) => {
                 </address>
               </div>
               <div class="col-md-9 col-sm-7 footer-menu-wrapper">
-                <div class="row">{renderFooter()}</div>
+                <div class="row">
+                  {dataFooter ? renderFooter() : <p>Loading...</p>}
+                </div>
               </div>
             </div>
           </div>
