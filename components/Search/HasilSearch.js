@@ -12,7 +12,7 @@ const HasilSearch = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/list'
+          process.env.NEXT_PUBLIC_API + '/berita/list'
         );
         setDataBerita(response.data.data);
       } catch (error) {
@@ -22,7 +22,7 @@ const HasilSearch = () => {
     const fetchDataAsyncAgenda = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda/list'
+          process.env.NEXT_PUBLIC_API + '/agenda/list'
         );
         setDataAgenda(response.data.data);
       } catch (error) {

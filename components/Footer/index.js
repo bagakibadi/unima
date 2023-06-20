@@ -9,7 +9,7 @@ const Footer = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'footer'
+          process.env.NEXT_PUBLIC_API + '/footer'
         );
         setDataFooter(response.data.data);
       } catch (error) {

@@ -17,7 +17,7 @@ const DetailAgenda = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda?id=' + id
+          process.env.NEXT_PUBLIC_API + '/agenda?id=' + id
         );
         setData(response.data.data);
       } catch (error) {
@@ -27,7 +27,7 @@ const DetailAgenda = () => {
     const fetchDataAsyncTerkait = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda/highlight'
+          process.env.NEXT_PUBLIC_API + '/agenda/highlight'
         );
         setDataTerkait(response.data.data);
         console.log(response.data.data);

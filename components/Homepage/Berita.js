@@ -10,7 +10,7 @@ export const Berita = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/highlight'
+          process.env.NEXT_PUBLIC_API + '/berita/highlight'
         );
         setData(response.data.data);
       } catch (error) {

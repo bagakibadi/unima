@@ -12,7 +12,7 @@ const index = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda/list'
+          process.env.NEXT_PUBLIC_API + '/agenda/list'
         );
         setData(response.data.data);
       } catch (error) {

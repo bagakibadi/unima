@@ -40,7 +40,7 @@
 .search-section {
   background-image: url('https://unima.ac.id/uploads/img_galeri/1650442822042.jpg');
   width: 100%;
-  padding: 50px 0;
+  /* padding: 50px 0; */
   background-color: #073c64;
   background-position-y: -500px;
   background-size: cover;
@@ -58,4 +58,18 @@
   margin: 15px auto 15px auto;
   width: 106px;
   border-bottom: 4px solid var(--warna-garis);
+}
+
+/* margin */
+.mx-10 {
+  margin: 0 50px !important;
+}
+
+.my-15 {
+  margin: 15px 0;
+}
+
+/* Padding */
+.py-10 {
+  padding: 50px 0;
 }

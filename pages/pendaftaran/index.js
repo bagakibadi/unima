@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
-import CardSidebar from '../../components/Card/CardSidebar';
 import Footer from '../../components/Footer';
 import axios from 'axios';
+import CardSidebar from '../../components/Card/CardSidebar';
 
-const Tentang = () => {
+const index = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API + '/about'
+          process.env.NEXT_PUBLIC_API + '/registration'
         );
         setData(response.data);
       } catch (error) {
@@ -35,19 +35,21 @@ const Tentang = () => {
           <div class="about-content">
             <div class="section-box">
               <div class="section-title">
-                <h2>Tentang UNIMA</h2>
+                <h2>PENDAFTARAN UNIMA</h2>
               </div>
-              <div class="section-subtitle">
-                Visi UNIMA "Unima Unggul dan Inovatif berdasarkan Mapalus."
+              <div class="section-subtitle" style={{ visibility: 'hidden' }}>
+                PENDAFTARAN UNIMA
               </div>
             </div>
           </div>
         </div>
       </section>
-      {data ? <CardSidebar data={data.data} /> : <p>Loading...</p>}
+
+      {data ? <CardSidebar data={data.data} /> : ''}
+
       <Footer />
     </>
   );
 };
 
-export default Tentang;
+export default index;

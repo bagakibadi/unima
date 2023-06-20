@@ -17,7 +17,7 @@ const id = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'berita?id=' + id
+          process.env.NEXT_PUBLIC_API + '/berita?id=' + id
         );
         setData(response.data.data);
       } catch (error) {
@@ -27,10 +27,9 @@ const id = () => {
     const fetchDataAsyncTerkait = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/highlight'
+          process.env.NEXT_PUBLIC_API + '/berita/highlight'
         );
         setDataTerkait(response.data.data);
-        console.log(response.data.data);
       } catch (error) {
         console.log(error);
       }

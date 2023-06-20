@@ -5,7 +5,7 @@ export const SambutanRektor = ({ data }) => {
   return (
     <section class="section-page no-paddingbottom sc-about--greeting">
       <div class="container">
-        <div class="row">
+        <div class="row wrap">
           <div class="col-md-7 col-md-push-5 greeting__text">
             <div class="section-box">
               <div class="section-category">Sambutan Rektor</div>

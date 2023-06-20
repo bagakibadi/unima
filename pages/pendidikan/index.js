@@ -7,20 +7,22 @@ const index = () => {
   return (
     <>
       <Header />
-      <section class="section-page top sc-about--offright">
+      <section class="section-offset section-offset--right section-page top">
+        <div class="offset-img">
+          <img
+            src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg"
+            alt=""
+          />
+        </div>
         <div class="container">
-          <div class="about-img">
-            <img
-              src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg"
-              alt=""
-            />
-          </div>
-          <div class="about-content">
-            <div class="section-box">
-              <div class="section-title">
-                <h2>Pendidikan</h2>
-              </div>
-              <div class="section-subtitle">Data Pendidikan</div>
+          <div class="offset-content">
+            <div class="offset-title section-title">
+              <h2>Pendidikan</h2>
+            </div>
+            <div class="offset-text">
+              {/* <p>
+                Universitas MANADO
+              </p> */}
             </div>
           </div>
         </div>

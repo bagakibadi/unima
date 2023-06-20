@@ -8,7 +8,7 @@ const ContentPengabdian = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'pengabdian'
+          process.env.NEXT_PUBLIC_API + '/pengabdian'
         );
         setData(response.data.data);
         console.log(response.data);

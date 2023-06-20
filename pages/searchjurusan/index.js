@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../../components/header';
-import CardSidebar from '../../components/Card/CardSidebar';
 import Footer from '../../components/Footer';
+import HasilSearch from '../../components/Search/HasilSearch';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 
-const Tentang = () => {
-  const [data, setData] = useState(null);
+const SearchPage = () => {
+  const router = useRouter();
+  const { program, name } = router.query;
+  const [data, setData] = useState('');
 
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_API + '/about'
+          `${process.env.NEXT_PUBLIC_API}/jurusan?program=${program}&name=${name}`
         );
         setData(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchDataAsync();
-  }, []);
-
+    console.log(program);
+    if (program || name) {
+      fetchDataAsync();
+    }
+  }, [program, name]);
   return (
     <>
       <Header />
@@ -35,19 +40,17 @@ const Tentang = () => {
           <div class="about-content">
             <div class="section-box">
               <div class="section-title">
-                <h2>Tentang UNIMA</h2>
+                <h2>Search Result</h2>
               </div>
-              <div class="section-subtitle">
-                Visi UNIMA "Unima Unggul dan Inovatif berdasarkan Mapalus."
-              </div>
+              <div class="section-subtitle">Bisnis</div>
             </div>
           </div>
         </div>
       </section>
-      {data ? <CardSidebar data={data.data} /> : <p>Loading...</p>}
+      <HasilSearch />
       <Footer />
     </>
   );
 };
 
-export default Tentang;
+export default SearchPage;

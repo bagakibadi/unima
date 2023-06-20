@@ -11,7 +11,7 @@ const Berita = () => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'berita/list'
+          process.env.NEXT_PUBLIC_API + '/berita/list'
         );
         setData(response.data.data);
       } catch (error) {

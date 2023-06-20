@@ -4,18 +4,16 @@ import { Statistic } from '../Statistic';
 import { Berita } from '../Berita';
 import Agenda from '../Agenda';
 import axios from 'axios';
-import { useRouter } from 'next/router';
+import Search from '../Search';
 
 const BodyHomepage = () => {
-  const router = useRouter();
-
   const [dataAgenda, setDataAgenda] = useState(null);
 
   useEffect(() => {
     const fetchDataAsync = async () => {
       try {
         const response = await axios.get(
-          process.env.NEXT_PUBLIC_SIDEBAR + 'agenda/highlight'
+          process.env.NEXT_PUBLIC_API + '/agenda/highlight'
         );
         setDataAgenda(response.data.data);
       } catch (error) {
@@ -59,11 +57,6 @@ const BodyHomepage = () => {
     ],
   };
 
-  const search = (e) => {
-    e.preventDefault();
-    router.push('/search');
-  };
-
   return (
     <div id="body">
       <div class="homepage homepage-id">
@@ -78,34 +71,7 @@ const BodyHomepage = () => {
           <div class="schome-hero__logotitle text-center"></div>
         </section>
 
-        <section className="search-section">
-          <div className="container" style={{ height: '100%' }}>
-            <div
-              className="row wrap justify-content-center align-items-center"
-              style={{ height: '100%', flexDirection: 'column' }}
-            >
-              <div class="section-title">
-                <h3 className="search-title">Explore UNIMA</h3>
-              </div>
-              <form
-                onSubmit={(e) => search(e)}
-                className="search-form col-md-4 mb-6"
-              >
-                <div class="input-group-lg input-group form-group btn-group btn-group-lg">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="s"
-                    placeholder="Search ..."
-                  />
-                  <button type="submit" class="btn">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
+        <Search />
 
         {/* Import Component Berita Homepage */}
         <Berita />
