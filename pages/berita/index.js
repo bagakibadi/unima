@@ -3,6 +3,7 @@ import CardBerita from '../../components/Card/CardBerita';
 import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
+import JumbotronBerita from '../../components/Berita/JumbotronBerita';
 
 const Berita = () => {
   const [data, setData] = useState(null);
@@ -31,6 +32,7 @@ const Berita = () => {
   return (
     <>
       <Header />
+      <JumbotronBerita />
       <section class="news-event news-col section-page">
         <div class="container">
           <div class="section-title">

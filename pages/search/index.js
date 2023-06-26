@@ -2,8 +2,10 @@ import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import HasilSearch from '../../components/Search/HasilSearch';
+import { useRouter } from 'next/router';
 
 const SearchPage = () => {
+  const router = useRouter();
   return (
     <>
       <Header />
@@ -20,7 +22,7 @@ const SearchPage = () => {
               <div class="section-title">
                 <h2>Search Result</h2>
               </div>
-              <div class="section-subtitle">Bisnis</div>
+              <div class="section-subtitle">{router.query.v}</div>
             </div>
           </div>
         </div>

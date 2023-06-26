@@ -3,10 +3,13 @@ import React, { useEffect, useState } from 'react';
 import CardBerita from '../Card/CardBerita';
 import AgendaCard from '../agenda/AgendaCard';
 import NewCardAgenda from '../agenda/NewCardAgenda';
+import { useRouter } from 'next/router';
 
 const HasilSearch = () => {
   const [dataBerita, setDataBerita] = useState(null);
   const [dataAgenda, setDataAgenda] = useState(null);
+
+  const router = useRouter();
 
   useEffect(() => {
     const fetchDataAsync = async () => {

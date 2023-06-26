@@ -1175,6 +1175,12 @@ address {
 .justify-content-start {
   justify-content: flex-start;
 }
+.justify-content-around {
+  justify-content: space-around;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
 
 .col-xs-1,
 .col-sm-1,

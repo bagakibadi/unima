@@ -2,36 +2,54 @@ import axios from 'axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { LiSidebar } from './LiSidebar';
+import TablePagination from '../Table/TablePagination';
 
 const CardSidebar = ({ data }) => {
   const [dataContent, setDataContent] = useState(null);
   const [dataBiaya, setDataBiaya] = useState(null);
+  const [dataTable, setDataTable] = useState('');
 
   const renderDataContent = async (id) => {
     fetchDataAsync(id);
   };
+  useEffect(() => {
+    if (data[0].children.length) {
+      fetchDataAsync(data[0].children[0].id);
+    } else {
+      fetchDataAsync(data[0].id);
+    }
+  }, []);
   const fetchDataAsync = async (id) => {
     const response = await axios.get(
       process.env.NEXT_PUBLIC_API + '/about/' + id
     );
     if (!response.data.data.link) {
       setDataContent(response.data.data);
+    } else {
+      window.open(response.data.data.link, '_blank');
     }
     if (response.data.data.content_link) {
       fetchTable(response.data.data.content_link);
     } else {
       setDataBiaya(null);
+      setDataTable(null);
     }
   };
 
   const fetchTable = async (data) => {
-    const response = await axios.get(process.env.NEXT_PUBLIC_API_NOAPI + data);
-    setDataBiaya(response.data.data);
+    if (data.includes('biaya')) {
+      const response = await axios.get(
+        process.env.NEXT_PUBLIC_API_NOAPI + data
+      );
+      setDataBiaya(response.data.data);
+    } else {
+      setDataTable(data);
+    }
   };
 
   const renderTable = () => {
     return (
-      <table className="table">
+      <table className="table table-bordered table-striped">
         <thead>
           <tr>
             <th>No</th>
@@ -39,17 +57,19 @@ const CardSidebar = ({ data }) => {
             <th>Jumlah UKT</th>
           </tr>
         </thead>
-        <tbody>
-          {dataBiaya
-            ? dataBiaya.map((obj, idx) => (
-                <tr>
-                  <td>{idx + 1}</td>
-                  <td>{obj.name}</td>
-                  <td>{renderBiaya(obj.biaya)}</td>
-                </tr>
-              ))
-            : ''}
-        </tbody>
+        {dataBiaya ? (
+          <tbody>
+            {dataBiaya.map((obj, idx) => (
+              <tr>
+                <td>{idx + 1}</td>
+                <td>{obj.name}</td>
+                <td>{renderBiaya(obj.biaya)}</td>
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          ''
+        )}
       </table>
     );
   };
@@ -90,6 +110,7 @@ const CardSidebar = ({ data }) => {
                 dangerouslySetInnerHTML={{ __html: dataContent.content }}
               ></div>
               {dataBiaya ? renderTable() : ''}
+              {dataTable ? <TablePagination dataUrl={dataTable} /> : ''}
             </div>
           ) : (
             ''

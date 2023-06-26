@@ -17,7 +17,6 @@ function SampleArrow(props) {
 
 const Agenda = ({ data }) => {
   const [dataAgenda, setDataAgenda] = useState(data);
-  console.log(dataAgenda);
   const renderAgenda = () => {
     return dataAgenda.map((obj, idx) => (
       <div

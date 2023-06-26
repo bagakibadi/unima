@@ -1,6 +1,21 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 export default function Header() {
+  const [search, setSearch] = useState('');
+  const router = useRouter();
+  const searchAll = (e) => {
+    e.preventDefault();
+    if (search) {
+      router.replace({
+        pathname: '/search',
+        query: {
+          v: search,
+        },
+      });
+    }
+  };
   return (
     <header id="header" className="header-fancy">
       <nav className="navbar navbar-default topbar">
@@ -119,10 +134,29 @@ export default function Header() {
               <a href="/pendaftaran">PENDAFTARAN</a>
             </li>
             <li>
-              <a href="/mahasiswa-alumni">MAHASISWA & ALUMNI</a>
+              <Link href="/mahasiswa-alumni">MAHASISWA & ALUMNI</Link>
             </li>
             <li>
-              <a href="/staff">STAFF</a>
+              <Link href="/staff">STAFF</Link>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <form onSubmit={searchAll} class="search-form">
+                <div class="input-group btn-group">
+                  <input
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    type="text"
+                    class="form-control"
+                    name="searchAll"
+                    placeholder="Search ..."
+                  />
+                  <button type="submit" class="btn">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </form>
             </li>
           </ul>
         </nav>
