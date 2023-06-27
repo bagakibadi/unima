@@ -14,7 +14,7 @@ const Search = () => {
 
   return (
     <section className="search-section">
-      <div className="row wrap">
+      <div className="row wrap m-0">
         <div className="col-md-6">
           <div
             className="row justify-content-end mx-10 align-items-center"
