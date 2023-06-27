@@ -19,7 +19,6 @@ const JurusanDeatail = () => {
           process.env.NEXT_PUBLIC_API + '/jurusan/' + id
         );
         setData(response.data.data);
-        console.log(response.data.data.contents);
       } catch (error) {
         console.log(error);
       }

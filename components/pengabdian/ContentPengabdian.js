@@ -11,7 +11,6 @@ const ContentPengabdian = () => {
           process.env.NEXT_PUBLIC_API + '/pengabdian'
         );
         setData(response.data.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }

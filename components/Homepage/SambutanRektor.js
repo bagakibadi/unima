@@ -1,29 +1,50 @@
+import axios from 'axios';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 export const SambutanRektor = ({ data }) => {
+  const [dataSambutan, setDataSambutan] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_API + '/landing/sambutan'
+        );
+        setDataSambutan(response.data.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
   return (
     <section class="section-page no-paddingbottom sc-about--greeting">
       <div class="container">
-        <div class="row wrap">
-          <div class="col-md-7 col-md-push-5 greeting__text">
-            <div class="section-box">
-              <div class="section-category">Sambutan Rektor</div>
-              <div class="section-title">
-                <h3>{data.name}</h3>
-              </div>
-              <div class="section-subtitle">{data.subtitle}</div>
-              <div class="post btn-box no-border">
-                <Link href={data.link} className="btn btn-more">
-                  Pelajari Selengkapnya
-                </Link>
+        {dataSambutan ? (
+          <div class="row wrap">
+            <div class="col-md-7 col-md-push-5 greeting__text">
+              <div class="section-box">
+                <div class="section-category">Sambutan Rektor</div>
+                <div class="section-title">
+                  <h3>{dataSambutan.name}</h3>
+                </div>
+                <div class="section-subtitle">{dataSambutan.subtitle}</div>
+                <div class="post btn-box no-border">
+                  <Link href={dataSambutan.link} className="btn btn-more">
+                    Pelajari Selengkapnya
+                  </Link>
+                </div>
               </div>
             </div>
+            <div class="col-md-5 col-md-pull-7 greeting__img">
+              <img src={dataSambutan.images} alt="" />
+            </div>
           </div>
-          <div class="col-md-5 col-md-pull-7 greeting__img">
-            <img src={data.images} alt="" />
-          </div>
-        </div>
+        ) : (
+          ''
+        )}
       </div>
     </section>
   );

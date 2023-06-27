@@ -18,12 +18,10 @@ const SearchPage = () => {
           `${process.env.NEXT_PUBLIC_API}/jurusan?program=${program}&name=${name}`
         );
         setData(response.data);
-        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
     };
-    console.log(program);
     if (program || name) {
       fetchDataAsync();
     }

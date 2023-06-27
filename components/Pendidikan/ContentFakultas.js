@@ -20,7 +20,6 @@ const ContentFakultas = () => {
   }, []);
 
   const renderFakultasList = () => {
-    console.log('ini render', data);
     return data.data.map((obj, idx) => (
       <figure key={idx} class="gallery-item col-md-3 col-sm-6 col-xs-6">
         <div class="gallery-img">
@@ -43,9 +42,6 @@ const ContentFakultas = () => {
             <div class="section-title inline-title">
               <h3>Fakultas dan Sekolah</h3>
             </div>
-            {/* <div class="section-subtitle">
-              Universitas MANADO
-            </div> */}
           </div>
           <div class="gallery">
             <div class="row wrap">{data ? renderFakultasList() : ''}</div>

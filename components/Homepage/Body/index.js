@@ -5,6 +5,7 @@ import { Berita } from '../Berita';
 import Agenda from '../Agenda';
 import axios from 'axios';
 import Search from '../Search';
+import Jumbotron from '../Jumbotron';
 
 const BodyHomepage = () => {
   const [dataAgenda, setDataAgenda] = useState(null);
@@ -60,17 +61,7 @@ const BodyHomepage = () => {
   return (
     <div id="body">
       <div class="homepage homepage-id">
-        <section class="section-page top schome-hero schome-hero--video">
-          <div id="home-video" class="schome-hero__video">
-            <video width="100%" height="100%" muted="muted" autoPlay>
-              <source src="/video/videoprofile.webm" type="video/webm" />
-              <source src="/video/videoprofile.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-          <div class="schome-hero__logotitle text-center"></div>
-        </section>
-
+        <Jumbotron />
         <Search />
 
         {/* Import Component Berita Homepage */}

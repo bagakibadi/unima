@@ -24,7 +24,6 @@ const JumbotronBerita = () => {
           process.env.NEXT_PUBLIC_API + '/berita/highlight'
         );
         setDataBerita(response.data.data);
-        console.log(response.data.data);
       } catch (error) {
         console.log(error);
       }
@@ -69,11 +68,6 @@ const JumbotronBerita = () => {
                 </Link>
               </div>
               <div class="post-content">
-                {/* <p class="post-meta">
-                  <span class="post-category">
-                    <a href="arsip/liputan-berita.html">Liputan/Berita</a>
-                  </span>
-                </p> */}
                 <div class="post-title">
                   <h3>
                     <Link href={'/berita/detail/' + obj.id}>{obj.title}</Link>
@@ -105,11 +99,6 @@ const JumbotronBerita = () => {
               </Link>
             </div>
             <div class="post-content">
-              {/* <p class="post-meta">
-                <span class="post-category">
-                  <a href="arsip/kabar-fakultas.html">Liputan/Berita</a>
-                </span>
-              </p> */}
               <div class="post-title">
                 <h3>
                   <Link href={'/berita/detail/' + obj.id}>{obj.title}</Link>
@@ -141,11 +130,6 @@ const JumbotronBerita = () => {
                 </Link>
               </div>
               <div class="post-content">
-                {/* <p class="post-meta">
-                  <span class="post-category">
-                    <a href="arsip/liputan-berita.html">Liputan/Berita</a>
-                  </span>
-                </p> */}
                 <div class="post-title">
                   <h3>
                     <Link href={'/berita/detail/' + obj.id}>{obj.title}</Link>

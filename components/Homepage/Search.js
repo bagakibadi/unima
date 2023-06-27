@@ -8,7 +8,6 @@ const Search = () => {
 
   const search = (e) => {
     e.preventDefault();
-    // console.log(name, program);
     router.replace(`/searchjurusan?program=${program}&name=${name}`);
   };
 
