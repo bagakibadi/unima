@@ -101,7 +101,7 @@ const CardSidebar = ({ data }) => {
             </div>
           </div>
           {dataContent ? (
-            <div class="col-sm-8">
+            <div class="col-sm-8 content-sidebar">
               <div class="section-title">
                 <h3>{dataContent.title}</h3>
               </div>

@@ -46,7 +46,7 @@ const Search = () => {
                       Sarjana
                     </label>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-5">
                     <input
                       value="pascasarjana"
                       onChange={(v) => setProgram(v.target.value)}
