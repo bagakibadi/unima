@@ -1,66 +1,71 @@
-export const Statistic = ({ data }) => {
-  return (
-    <section
-      class="section-page no-paddingbottom sc-about--number"
-      style={{ marginBottom: '80px' }}
-    >
-      <div class="container">
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+export const Statistic = () => {
+  const [dataSekilas, setDataSekilas] = useState(null);
+
+  useEffect(() => {
+    const fetchDataAsync = async () => {
+      try {
+        const response = await axios.get(
+          process.env.NEXT_PUBLIC_API + '/landing/sekilas'
+        );
+        setDataSekilas(response.data.data);
+        console.log(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchDataAsync();
+  }, []);
+
+  const renderSekilas = () => {
+    return (
+      <>
         <div class="row">
           <div class="col-md-7 col-sm-6 number-desc">
             <div class="section-title">
-              <h3>Sekilas UNIMA</h3>
+              <h3>{dataSekilas.title}</h3>
             </div>
             <div
               class="section-subtitle"
-              dangerouslySetInnerHTML={{ __html: data.description }}
+              dangerouslySetInnerHTML={{ __html: dataSekilas.content_left }}
             ></div>
           </div>
           <div class="col-md-5 col-sm-6">
             <div class="number-trophy text-center">
               <img src="/images/trophy.png" alt="" />
-              <h3 dangerouslySetInnerHTML={{ __html: data.awardDescription }} />
+              <h3
+                dangerouslySetInnerHTML={{ __html: dataSekilas.content_right }}
+              />
             </div>
           </div>
         </div>
         <div class="number-counter number-row text-center">
-          <div class="row">
-            <div class="col-xs-6 col-md-3">
-              <div class="number-col">
-                <p>Latest Graduates</p>
-                <h2 data-number="18" class="number-animate">
-                  900+
-                </h2>
-              </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="number-col">
-                <p>Teachers</p>
-                <h2 data-number="265" class="number-animate">
-                  300+
-                </h2>
-              </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="number-col">
-                <p>
-                  <i>Latest Graduates</i>
-                </p>
-                <h2 data-number="111" class="number-animate">
-                  9
-                </h2>
-              </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-              <div class="number-col">
-                <p>Students</p>
-                <h2 data-number="23" class="number-animate">
-                  17000+
-                </h2>
-              </div>
-            </div>
+          <div class="row">{renderPenghargaan()}</div>
+        </div>
+      </>
+    );
+  };
+
+  const renderPenghargaan = () => {
+    return dataSekilas.penghargaan.map((obj, idx) => (
+      <div class="col-xs-6 col-md-3">
+        <div class="number-col" style={{ height: '275px' }}>
+          <div style={{ margin: '0px auto 30px auto' }}>
+            <img style={{ width: '74px' }} src="/images/icons/medal.png" />
           </div>
+          <p>{obj.name}</p>
         </div>
       </div>
+    ));
+  };
+  return (
+    <section
+      class="section-page no-paddingbottom sc-about--number"
+      style={{ marginBottom: '80px' }}
+    >
+      <div class="container">{dataSekilas ? renderSekilas() : ''}</div>
     </section>
   );
 };

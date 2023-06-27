@@ -24,40 +24,6 @@ const BodyHomepage = () => {
     fetchDataAsync();
   }, []);
 
-  const dataRektor = {
-    name: 'Prof. Dr. Deitje A. Katuuk, M.Pd',
-    subtitle:
-      'Universitas Negeri Manado sebagai Lembaga Penyelenggaraan Pendidikan Tinggi di Sulawesi Utara, memiliki Visi "UNIMA Unggul, Inovatif Berdasarkan Mapalus". Terletak di Puncak Tonsaru, Tondano, UNIMA menyelenggarakan Pendidikan Jenjang Diploma 3, Sarjana, Magister dan Doktor.',
-    link: '#',
-    images: '/images/photo/rektor.png',
-  };
-
-  const dataStatic = {
-    description:
-      '<p>Universitas Negeri Manado sebagai Lembaga Penyelenggaraan Pendidikan Tinggi di Sulawesi Utara, memiliki Visi <b>"UNIMA Unggul, Inovatif Berdasarkan Mapalus"</b>. Terletak di Puncak Tonsaru, Tondano, UNIMA menyelenggarakan Pendidikan Jenjang Diploma 3, Sarjana, Magister dan Doktor. </p>',
-    awardDescription:
-      'Meraih tiga penghargaan Kementdikbudristek dan Kemenkeu atas pencapaian Indikator Kinerja Utama (IKU) 2, 3 serta masuk 10 besar liga PTN Satker (27/6/2023)',
-    awardImage: '/images/trophy.png',
-    data: [
-      {
-        name: 'Latest Graduates',
-        value: '900+',
-      },
-      {
-        name: 'Teachers',
-        value: '300+',
-      },
-      {
-        name: 'Programs',
-        value: '9',
-      },
-      {
-        name: 'Students',
-        value: '17000+',
-      },
-    ],
-  };
-
   return (
     <div id="body">
       <div class="homepage homepage-id">
@@ -68,13 +34,13 @@ const BodyHomepage = () => {
         <Berita />
 
         {/* Import Component Data Statistic Homepage */}
-        <Statistic data={dataStatic} />
+        <Statistic />
 
         {/* Import Component Data Agenda Event Homepage */}
         {dataAgenda ? <Agenda data={dataAgenda} /> : <p>Loading...</p>}
 
         {/* Import Component Sambutan Rektor Homepage*/}
-        <SambutanRektor data={dataRektor} />
+        <SambutanRektor />
       </div>
     </div>
   );
