@@ -13,7 +13,7 @@ const CardSidebar = ({ data }) => {
     fetchDataAsync(id);
   };
   useEffect(() => {
-    if (data[0].children.length) {
+    if (data[0]?.children?.length) {
       fetchDataAsync(data[0].children[0].id);
     } else {
       fetchDataAsync(data[0].id);
