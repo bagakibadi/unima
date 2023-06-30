@@ -48,7 +48,7 @@ const ShareMedia = ({ left }) => {
   };
 
   return left ? (
-    <div class="col-md-1 col-md-pull-10 share-box-wrapper">{renderMedia()}</div>
+    <div class="col-md-1 col-md-pull-8 share-box-wrapper">{renderMedia()}</div>
   ) : (
     renderMedia()
   );

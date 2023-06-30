@@ -6,7 +6,7 @@ import ShareMedia from '../Utility/ShareMedia';
 
 const ContentBerita = ({ data, dataTerkait }) => {
   return (
-    <div id="content" class="col-md-10 col-md-push-1 sidebar-right">
+    <div id="content" class="col-md-8 col-md-push-1 sidebar-right">
       <ul class="breadcrumbs breadcrumb">
         <li>
           <Link href="/berita">Beranda</Link>
@@ -25,8 +25,8 @@ const ContentBerita = ({ data, dataTerkait }) => {
               />{' '}
               WIB
             </li>
-            <li class="post-author">Oleh: Humas UNIMA</li>
-            <li class="post-reads">3507</li>
+            <li class="post-author">Oleh: {data.author.name}</li>
+            <li class="post-reads">{data.views}</li>
           </ul>
         </div>
 

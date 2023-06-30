@@ -260,3 +260,49 @@
 .agenda-head {
   margin-right: 10px;
 }
+
+.card-agenda-info {
+  background-color: #f3f3f3;
+  width: 100%;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 4px 4px 15px rgb(112 124 151/5%);
+}
+
+.row-info i {
+  margin-right: 10px;
+  color: #fdcb2c;
+  min-width: 15px;
+}
+.row-info span {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.w-100 {
+  width: 100%;
+}
+.row-button {
+  margin: 15px 0 0 0;
+}
+.join-btn {
+  margin-bottom: 10px;
+}
+
+/* btn */
+
+.btn-calendar {
+  border-radius: 5px;
+  background-color: #999;
+  color: #f3f3f3;
+}
+
+.btn-blue {
+  border-radius: 5px;
+  background-color: #073c64;
+  color: white;
+}
+.btn-blue:hover {
+  color: #999;
+}

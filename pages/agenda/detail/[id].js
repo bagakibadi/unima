@@ -5,6 +5,8 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import ContentAgenda from '../../../components/agenda/ContentAgenda';
 import ShareMedia from '../../../components/Utility/ShareMedia';
+import Link from 'next/link';
+import AgendaInfoCard from '../../../components/agenda/AgendaInfoCard';
 
 const DetailAgenda = () => {
   const router = useRouter();
@@ -51,6 +53,7 @@ const DetailAgenda = () => {
             <p>Loading...</p>
           )}
           <ShareMedia left={true} />
+          {data && dataTerkait ? <AgendaInfoCard data={data} /> : ''}
         </div>
       </div>
       <Footer />
