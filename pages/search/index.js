@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 
 const SearchPage = () => {
   const router = useRouter();
+  const { keyword } = router.query;
+
   return (
     <>
       <Header />
@@ -22,7 +24,7 @@ const SearchPage = () => {
               <div class="section-title">
                 <h2>Search Result</h2>
               </div>
-              <div class="section-subtitle">{router.query.v}</div>
+              <div class="section-subtitle">{keyword}</div>
             </div>
           </div>
         </div>

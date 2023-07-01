@@ -3,6 +3,7 @@ import React from 'react';
 import CustomDate from '../CustomDate';
 import ShareMedia from '../Utility/ShareMedia';
 import TerkaitAgenda from './Terkait';
+import AgendaInfoCard from './AgendaInfoCard';
 
 const ContentAgenda = ({ data, dataTerkait }) => {
   return (
@@ -29,6 +30,10 @@ const ContentAgenda = ({ data, dataTerkait }) => {
             <li class="post-reads">{data.views}</li>
           </ul>
         </div>
+        <div className="desktop-hidden">
+          <AgendaInfoCard data={data} />
+        </div>
+        {data.image ? <img className="w-100" src={data.image} /> : ''}
 
         <div
           class="post-content"

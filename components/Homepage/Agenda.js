@@ -1,6 +1,5 @@
-import axios from 'axios';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import CustomDate from '../CustomDate';
 
@@ -59,6 +58,16 @@ const Agenda = ({ data }) => {
     initialSlide: 0,
     nextArrow: <SampleArrow />,
     prevArrow: <SampleArrow />,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
   return (
     <section class="section-page schome-event">

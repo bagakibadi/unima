@@ -1,13 +1,14 @@
 import axios from 'axios';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { LiSidebar } from './LiSidebar';
 import TablePagination from '../Table/TablePagination';
+import Link from 'next/link';
 
 const CardSidebar = ({ data }) => {
   const [dataContent, setDataContent] = useState(null);
   const [dataBiaya, setDataBiaya] = useState(null);
   const [dataTable, setDataTable] = useState('');
+  const [searchDosen, setSearchDosen] = useState('');
 
   const renderDataContent = async (id) => {
     fetchDataAsync(id);
@@ -78,14 +79,26 @@ const CardSidebar = ({ data }) => {
     return data.map((obj, idx) => <li>{obj.value}</li>);
   };
 
+  const openWidget = (e) => {
+    e.preventDefault();
+    const widget = document.getElementsByClassName('widget_menu');
+    const checkWidget = widget[0].classList.contains('d-block');
+    if (checkWidget) return widget[0].classList.remove('d-block');
+    widget[0].classList.add('d-block');
+  };
+
   return (
     <section class="section-page sc-about--menu">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
-            <a class="btn btn-tabmenu hidden-sm hidden-md hidden-lg">
+            <Link
+              onClick={(e) => openWidget(e)}
+              href="#"
+              class="btn btn-tabmenu hidden-sm hidden-md hidden-lg"
+            >
               <i class="fa fa-bars"></i> TAB MENU
-            </a>
+            </Link>
 
             <div class="menu-box widget widget_menu">
               <div class="widget-header">
@@ -110,7 +123,28 @@ const CardSidebar = ({ data }) => {
                 dangerouslySetInnerHTML={{ __html: dataContent.content }}
               ></div>
               {dataBiaya ? renderTable() : ''}
-              {dataTable ? <TablePagination dataUrl={dataTable} /> : ''}
+              {dataTable ? (
+                <>
+                  <div className="row justify-content-end">
+                    <div class=" input-group form-group btn-group ">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="s"
+                        placeholder="Search ..."
+                        value={searchDosen}
+                        onChange={(v) => setSearchDosen(v.target.value)}
+                      />
+                      <button type="button" class="btn">
+                        <i class="fa fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <TablePagination search={searchDosen} />
+                </>
+              ) : (
+                ''
+              )}
             </div>
           ) : (
             ''

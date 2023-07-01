@@ -53,7 +53,13 @@ const DetailAgenda = () => {
             <p>Loading...</p>
           )}
           <ShareMedia left={true} />
-          {data && dataTerkait ? <AgendaInfoCard data={data} /> : ''}
+          {data && dataTerkait ? (
+            <div className="mobile-hidden">
+              <AgendaInfoCard className="mobile-hidden" data={data} />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
       <Footer />

@@ -2,23 +2,28 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
-const TablePagination = ({ dataUrl }) => {
+const TablePagination = ({ search }) => {
   const [data, setData] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const fetchDataAsync = async () => {
-      try {
-        const response = await axios.get(
-          process.env.NEXT_PUBLIC_API + '/dosen?page=' + currentPage
-        );
-        setData(response.data.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     fetchDataAsync();
-  }, [currentPage]);
+  }, [currentPage, search]);
+
+  const fetchDataAsync = async () => {
+    try {
+      const response = await axios.get(
+        process.env.NEXT_PUBLIC_API +
+          '/dosen?page=' +
+          currentPage +
+          '&name=' +
+          search
+      );
+      setData(response.data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const renderTable = () => {
     return data.data.map((obj, idx) => (

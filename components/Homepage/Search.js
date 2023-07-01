@@ -19,7 +19,7 @@ const Search = () => {
             className="row justify-content-end mx-10 align-items-center"
             style={{ height: '100%' }}
           >
-            <h1 style={{ color: '#f3f3f3', textAlign: 'end' }}>
+            <h1 className="subcontent-title">
               Temukan Program Studi,
               <br /> Jurusan,
               <br /> dan Fakultas

@@ -71,7 +71,7 @@ const ContentDetail = ({ data }) => {
             <div class="col-md-12 col-sm-12">
               <div class="section-box">
                 <div
-                  class=""
+                  class="content-sidebar"
                   dangerouslySetInnerHTML={{ __html: data.contents[0].content }}
                 ></div>
               </div>

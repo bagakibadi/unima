@@ -88,3 +88,34 @@
 .content-sidebar * {
   max-width: 100%;
 }
+.mobile-hidden {
+  display: block;
+}
+.desktop-hidden {
+  display: none;
+}
+
+.subcontent-title {
+  color: #f3f3f3;
+  text-align: end;
+}
+
+@media (max-width: 992px) {
+  .mobile-hidden {
+    display: none;
+  }
+  .desktop-hidden {
+    display: block;
+  }
+  .subcontent-title {
+    text-align: center;
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block !important;
+}

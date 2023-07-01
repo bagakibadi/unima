@@ -11,10 +11,18 @@ export default function Header() {
       router.replace({
         pathname: '/search',
         query: {
-          v: search,
+          keyword: search,
         },
       });
     }
+  };
+
+  const openMenu = (e) => {
+    e.preventDefault();
+    const navbar = document.getElementById('navbar');
+    const checkDisplay = navbar.classList.contains('d-block');
+    if (checkDisplay) return navbar.classList.remove('d-block');
+    navbar.classList.add('d-block');
   };
   return (
     <header id="header" className="header-fancy">
@@ -87,6 +95,7 @@ export default function Header() {
             <span>Universitas Negeri Manado</span>
           </Link>
           <button
+            onClick={(e) => openMenu(e)}
             type="button"
             class="navbar-toggle collapsed"
             data-toggle="collapse"
@@ -103,7 +112,7 @@ export default function Header() {
         <nav id="navbar" class="navbar navbar-collapse navbar-default collapse">
           <ul class="nav navbar-nav navbar-left">
             <li>
-              <Link href="/tentang">PROFIL</Link>
+              <Link href="/tentang">PROFILe</Link>
             </li>
             <li>
               <Link href="/pendidikan">PENDIDIKAN</Link>

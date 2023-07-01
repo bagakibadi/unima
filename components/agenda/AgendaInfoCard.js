@@ -13,7 +13,7 @@ const AgendaInfoCard = ({ data }) => {
   const linkCalendar = `https://calendar.google.com/calendar/u/2/r/eventedit?text=${data.title}&dates=${startFormat}/${endFormat}&output=xml&pli=1`;
   console.log(linkCalendar);
   return (
-    <div className="col-md-3">
+    <div className="col-md-3 mb-4">
       <div className="card-agenda-info">
         <div className="row-info">
           <i className="fa fa-calendar"></i>
