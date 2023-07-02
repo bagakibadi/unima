@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 const Search = () => {
   const router = useRouter();
-  const [program, setProgram] = useState('');
+  const [program, setProgram] = useState('sarjana');
   const [name, setName] = useState('');
 
   const search = (e) => {
@@ -39,6 +39,7 @@ const Search = () => {
                       onChange={(v) => setProgram(v.target.value)}
                       className="form-radio"
                       name="optionSearch"
+                      checked={program === 'sarjana'}
                       id="sarjana"
                     />
                     <label style={{ marginLeft: '5px' }} for="sarjana">
@@ -52,9 +53,10 @@ const Search = () => {
                       type="radio"
                       className="form-radio"
                       name="optionSearch"
-                      id="Pascasarjana"
+                      checked={program === 'pascasarjana'}
+                      id="pascasarjana"
                     />
-                    <label style={{ marginLeft: '5px' }} for="Pascasarjana">
+                    <label style={{ marginLeft: '5px' }} for="pascasarjana">
                       Pascasarjana
                     </label>
                   </div>

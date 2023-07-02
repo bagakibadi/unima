@@ -4987,7 +4987,7 @@ fieldset[disabled] .btn-more.focus {
     /* dropdown*/
   }
   #header.header-fancy #navbar .nav > li > a {
-    padding: 30px 15px;
+    padding: 30px 10px;
   }
   #header.header-fancy #navbar .nav > li.dropdown:hover > a:after {
     display: none;
@@ -6777,9 +6777,9 @@ fieldset[disabled] .btn-more.focus {
     -o-object-fit: cover;
     object-fit: cover;
   }
-  .schome-hero__video > video {
+  /* .schome-hero__video > video {
     display: none;
-  }
+  } */
 }
 @media (min-width: 768px) {
   .schome-hero {

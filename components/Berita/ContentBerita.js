@@ -5,6 +5,7 @@ import Terkait from './Terkait';
 import ShareMedia from '../Utility/ShareMedia';
 
 const ContentBerita = ({ data, dataTerkait }) => {
+  console.log(data);
   return (
     <div id="content" class="col-md-8 col-md-push-1 sidebar-right">
       <ul class="breadcrumbs breadcrumb">
@@ -29,6 +30,8 @@ const ContentBerita = ({ data, dataTerkait }) => {
             <li class="post-reads">{data.views}</li>
           </ul>
         </div>
+
+        {data.image ? <img className="w-100" src={data.image} /> : ''}
 
         <div
           class="post-content"
