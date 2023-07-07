@@ -5,6 +5,9 @@ import { useState } from 'react';
 export default function Header() {
   const [search, setSearch] = useState('');
   const router = useRouter();
+  const path = router.asPath;
+  const pathArray = path.split('/').filter(Boolean);
+  // console.log();
   const searchAll = (e) => {
     e.preventDefault();
     if (search) {
@@ -111,10 +114,17 @@ export default function Header() {
         </div>
         <nav id="navbar" class="navbar navbar-collapse navbar-default collapse">
           <ul class="nav navbar-nav navbar-left">
-            <li>
+            <li className={pathArray.includes('tentang') ? 'active' : ''}>
               <Link href="/tentang">PROFILe</Link>
             </li>
-            <li>
+            <li
+              className={
+                pathArray.includes('pendidikan') ||
+                pathArray.includes('jurusan')
+                  ? 'active'
+                  : ''
+              }
+            >
               <Link href="/pendidikan">PENDIDIKAN</Link>
             </li>
             <li class="dropdown">
@@ -136,16 +146,18 @@ export default function Header() {
                 </li>
               </ul>
             </li>
-            <li>
+            <li className={pathArray.includes('pengabdian') ? 'active' : ''}>
               <Link href="/pengabdian">PENGABDIAN</Link>
             </li>
-            <li>
+            <li className={pathArray.includes('pendaftaran') ? 'active' : ''}>
               <a href="/pendaftaran">PENDAFTARAN</a>
             </li>
-            <li>
+            <li
+              className={pathArray.includes('mahsiswa-alumni') ? 'active' : ''}
+            >
               <Link href="/mahasiswa-alumni">MAHASISWA & ALUMNI</Link>
             </li>
-            <li>
+            <li className={pathArray.includes('staff') ? 'active' : ''}>
               <Link href="/staff">STAFF</Link>
             </li>
           </ul>
