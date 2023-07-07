@@ -35,7 +35,7 @@ const index = () => {
           <div class="about-content">
             <div class="section-box">
               <div class="section-title">
-                <h2>Info Mahasiswa & Alumni</h2>
+                <h2>Staff & Dosen</h2>
               </div>
               <div class="hidden section-subtitle">
                 Visi UNIMA "Unima Unggul dan Inovatif berdasarkan Mapalus."
