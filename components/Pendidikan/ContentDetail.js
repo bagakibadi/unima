@@ -16,10 +16,7 @@ const ContentDetail = ({ data }) => {
             </div>
             <div className="col-md-7">
               <img
-                src={
-                  data.image ||
-                  'https://unima.ac.id/uploads/img_galeri/1650442701563.jpg'
-                }
+                src={data.image || '/images/UNIMA.jpg'}
                 alt=""
                 class="img-full"
               />

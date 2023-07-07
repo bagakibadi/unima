@@ -10,10 +10,7 @@ const Pengabdian = () => {
       <section class="section-page top sc-about--offright">
         <div class="container">
           <div class="about-img">
-            <img
-              src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg"
-              alt=""
-            />
+            <img src="/images/UNIMA.jpg" alt="" />
           </div>
           <div class="about-content">
             <div class="section-box">

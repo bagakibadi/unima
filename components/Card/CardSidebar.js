@@ -4,7 +4,7 @@ import { LiSidebar } from './LiSidebar';
 import TablePagination from '../Table/TablePagination';
 import Link from 'next/link';
 
-const CardSidebar = ({ data }) => {
+const CardSidebar = ({ data, sidebarTitle }) => {
   const [dataContent, setDataContent] = useState(null);
   const [dataBiaya, setDataBiaya] = useState(null);
   const [dataTable, setDataTable] = useState('');
@@ -102,7 +102,7 @@ const CardSidebar = ({ data }) => {
 
             <div class="menu-box widget widget_menu">
               <div class="widget-header">
-                <h3 class="widget-title">Tentang UNIMA</h3>
+                <h3 class="widget-title">{sidebarTitle || 'Tentang UNIMA'}</h3>
               </div>
               <ul>
                 {data ? (

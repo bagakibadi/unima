@@ -52,7 +52,7 @@ const HasilSearch = () => {
       <figure key={idx} class="gallery-item col-md-3 col-sm-6 col-xs-6">
         <div class="gallery-img">
           <Link href={'/pendidikan/' + obj.id}>
-            <img src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg" />
+            <img src="/images/UNIMA.jpg" />
           </Link>
         </div>
         <figcaption class="gallery-caption">

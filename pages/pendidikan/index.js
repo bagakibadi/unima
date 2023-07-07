@@ -9,10 +9,7 @@ const index = () => {
       <Header />
       <section class="section-offset section-offset--right section-page top">
         <div class="offset-img">
-          <img
-            src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg"
-            alt=""
-          />
+          <img src="/images/UNIMA.jpg" alt="" />
         </div>
         <div class="container">
           <div class="offset-content">

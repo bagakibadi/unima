@@ -27,10 +27,7 @@ const index = () => {
       <section class="section-page top sc-about--offright">
         <div class="container">
           <div class="about-img">
-            <img
-              src="https://unima.ac.id/uploads/img_galeri/1650442701563.jpg"
-              alt=""
-            />
+            <img src="/images/UNIMA.jpg" alt="" />
           </div>
           <div class="about-content">
             <div class="section-box">
@@ -45,7 +42,11 @@ const index = () => {
         </div>
       </section>
 
-      {data ? <CardSidebar data={data.data} /> : <p>Loading...</p>}
+      {data ? (
+        <CardSidebar sidebarTitle={'Info UNIMA'} data={data.data} />
+      ) : (
+        <p>Loading...</p>
+      )}
 
       <Footer />
     </>
