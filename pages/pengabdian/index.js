@@ -2,10 +2,14 @@ import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import ContentPengabdian from '../../components/pengabdian/ContentPengabdian';
+import Head from 'next/head';
 
 const Pengabdian = () => {
   return (
     <>
+      <Head>
+        <title>UNIMA - Pengabdian</title>
+      </Head>
       <Header />
       <section class="section-page top sc-about--offright">
         <div class="container">

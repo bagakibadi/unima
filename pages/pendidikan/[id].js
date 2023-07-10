@@ -6,6 +6,7 @@ import ContentListJurusan from '../../components/Jurusan/ContentListJurusan';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const DetailFakultas = () => {
   const router = useRouter();
@@ -30,6 +31,9 @@ const DetailFakultas = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - {data?.name}</title>
+      </Head>
       <Header />
       <div className="body">
         <div class="education-page">

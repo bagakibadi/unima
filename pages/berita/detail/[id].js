@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import Footer from '../../../components/Footer';
 import ShareMedia from '../../../components/Utility/ShareMedia';
+import Head from 'next/head';
 
 const id = () => {
   const router = useRouter();
@@ -42,6 +43,9 @@ const id = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - {data?.title}</title>
+      </Head>
       <Header />
       <div className="container">
         <div className="row">

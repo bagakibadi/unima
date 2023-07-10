@@ -5,6 +5,7 @@ import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import { LiSidebar } from '../../components/Card/LiSidebar';
 import CardSidebar from '../../components/Card/CardSidebar';
+import Head from 'next/head';
 
 const JurusanDeatail = () => {
   const router = useRouter();
@@ -31,6 +32,9 @@ const JurusanDeatail = () => {
   const renderJumbotron = () => {
     return (
       <>
+        <Head>
+          <title>UNIMA - {data.name}</title>
+        </Head>
         <section class="section-page top sc-about--offright">
           <div class="container">
             <div class="about-img">

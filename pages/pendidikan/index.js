@@ -2,10 +2,14 @@ import React from 'react';
 import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import ContentFakultas from '../../components/Pendidikan/ContentFakultas';
+import Head from 'next/head';
 
 const index = () => {
   return (
     <>
+      <Head>
+        <title>UNIMA - Pendidikan</title>
+      </Head>
       <Header />
       <section class="section-offset section-offset--right section-page top">
         <div class="offset-img">

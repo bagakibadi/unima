@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 import JumbotronBerita from '../../components/Berita/JumbotronBerita';
+import Head from 'next/head';
 
 const Berita = () => {
   const [data, setData] = useState(null);
@@ -31,6 +32,9 @@ const Berita = () => {
   };
   return (
     <>
+      <Head>
+        <title>UNIMA - Berita</title>
+      </Head>
       <Header />
       <JumbotronBerita />
       <section class="news-event news-col section-page">

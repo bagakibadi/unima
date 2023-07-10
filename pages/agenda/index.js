@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import AgendaCard from '../../components/agenda/AgendaCard';
 import axios from 'axios';
 import NewCardAgenda from '../../components/agenda/NewCardAgenda';
+import Head from 'next/head';
 
 const index = () => {
   const [data, setData] = useState(null);
@@ -32,6 +33,9 @@ const index = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - Agenda</title>
+      </Head>
       <Header />
       <section class="news-event news-col section-page">
         <div class="container">

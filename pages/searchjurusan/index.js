@@ -4,6 +4,7 @@ import Footer from '../../components/Footer';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Link from 'next/link';
+import Head from 'next/head';
 
 const SearchPage = () => {
   const router = useRouter();
@@ -58,6 +59,9 @@ const SearchPage = () => {
   };
   return (
     <>
+      <Head>
+        <title>UNIMA - Search {name}</title>
+      </Head>
       <Header />
       <section class="section-page top sc-about--offright">
         <div class="container">

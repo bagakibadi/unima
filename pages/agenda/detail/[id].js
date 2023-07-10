@@ -7,6 +7,7 @@ import ContentAgenda from '../../../components/agenda/ContentAgenda';
 import ShareMedia from '../../../components/Utility/ShareMedia';
 import Link from 'next/link';
 import AgendaInfoCard from '../../../components/agenda/AgendaInfoCard';
+import Head from 'next/head';
 
 const DetailAgenda = () => {
   const router = useRouter();
@@ -44,6 +45,9 @@ const DetailAgenda = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - {data?.title}</title>
+      </Head>
       <Header />
       <div className="container">
         <div className="row">

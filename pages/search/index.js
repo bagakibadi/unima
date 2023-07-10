@@ -3,6 +3,7 @@ import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import HasilSearch from '../../components/Search/HasilSearch';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const SearchPage = () => {
   const router = useRouter();
@@ -10,6 +11,9 @@ const SearchPage = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - Search {keyword}</title>
+      </Head>
       <Header />
       <section class="section-page top sc-about--offright">
         <div class="container">

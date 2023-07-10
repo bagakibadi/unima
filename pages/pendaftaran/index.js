@@ -3,6 +3,7 @@ import Header from '../../components/header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
 import CardSidebar from '../../components/Card/CardSidebar';
+import Head from 'next/head';
 
 const index = () => {
   const [data, setData] = useState(null);
@@ -23,6 +24,9 @@ const index = () => {
 
   return (
     <>
+      <Head>
+        <title>UNIMA - Pendaftaran</title>
+      </Head>
       <Header />
       <section class="section-page top sc-about--offright">
         <div class="container">
