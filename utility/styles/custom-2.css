@@ -15170,7 +15170,7 @@ List of content:
   margin-right: 10px;
   background-color: #073c64;
   border: 0;
-  border-left: 4px solid #fdcb2c;
+  border-left: 4px solid var(--warna-garis);
   font-family: sans-serif;
   height: 64px;
   margin-top: -30px;
