@@ -12,7 +12,11 @@ const Search = () => {
   };
 
   return (
-    <section className="search-section">
+    <section
+      data-aos="fade-up"
+      data-aos-duration="800"
+      className="search-section"
+    >
       <div className="row wrap m-0">
         <div className="col-md-6">
           <div

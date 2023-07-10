@@ -24,15 +24,16 @@ export const Statistic = () => {
       <>
         <div class="row">
           <div class="col-md-7 col-sm-6 number-desc">
-            <div class="section-title">
+            <div data-aos="fade-right" class="section-title">
               <h3>{dataSekilas.title}</h3>
             </div>
             <div
+              data-aos="fade-up"
               class="section-subtitle"
               dangerouslySetInnerHTML={{ __html: dataSekilas.content_left }}
             ></div>
           </div>
-          <div class="col-md-5 col-sm-6">
+          <div data-aos="fade-left" class="col-md-5 col-sm-6">
             <div class="number-trophy text-center">
               <img src="/images/trophy.png" alt="" />
               <h3
@@ -50,7 +51,7 @@ export const Statistic = () => {
 
   const renderPenghargaan = () => {
     return dataSekilas.penghargaan.map((obj, idx) => (
-      <div class="col-xs-6 col-md-3">
+      <div data-aos="zoom-in" data-aos-duration="800" class="col-xs-6 col-md-3">
         <div class="number-col" style={{ height: '275px' }}>
           <div style={{ margin: '0px auto 30px auto' }}>
             <img style={{ width: '74px' }} src="/images/icons/medal.png" />

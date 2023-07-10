@@ -21,7 +21,12 @@ const ContentFakultas = () => {
 
   const renderFakultasList = () => {
     return data.data.map((obj, idx) => (
-      <figure key={idx} class="gallery-item col-md-3 col-sm-6 col-xs-6">
+      <figure
+        data-aos="fade-up"
+        data-aos-duration="700"
+        key={idx}
+        class="gallery-item col-md-3 col-sm-6 col-xs-6"
+      >
         <div class="gallery-img">
           <Link href={'/pendidikan/' + obj.id}>
             <img src="/images/UNIMA.jpg" />
@@ -39,7 +44,7 @@ const ContentFakultas = () => {
       <section class="section-studies section-page">
         <div class="container">
           <div class="section-box">
-            <div class="section-title inline-title">
+            <div data-aos="fade" class="section-title inline-title">
               <h3>Fakultas dan Sekolah</h3>
             </div>
           </div>

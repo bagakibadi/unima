@@ -25,7 +25,11 @@ export const Berita = () => {
     return data.map((items, idx) => (
       <>
         {idx === 0 ? (
-          <div className="col-md-12 col-sm-12">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            className="col-md-12 col-sm-12"
+          >
             <article class="container-fluid post post-block" key={items.id}>
               <div class="post-img">
                 <Link href={'/berita/detail/' + items.id}>
@@ -59,7 +63,11 @@ export const Berita = () => {
             </article>
           </div>
         ) : (
-          <div class="col-md-4 col-sm-4">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            class="col-md-4 col-sm-4"
+          >
             <CardNewsHome key={items.id} data={items} />
           </div>
         )}
@@ -73,12 +81,12 @@ export const Berita = () => {
       class="section-page news-event"
     >
       <div class="container">
-        <div class="section-title">
+        <div data-aos="fade" data-aos-duration="1500" class="section-title">
           <h2>Rilis Berita</h2>
         </div>
         {data ? renderBerita(data) : <p>Loading..</p>}
         <div class="text-center btn-box no-border">
-          <Link href="/berita" class="btn btn-more">
+          <Link data-aos="fade" href="/berita" class="btn btn-more">
             Berita Selengkapnya
           </Link>
         </div>

@@ -45,7 +45,7 @@ const Footer = () => {
   };
   return (
     <div>
-      <section class="home-socmed section-page">
+      <section data-aos="fade-up" class="home-socmed section-page">
         <div class="container">
           <div class="row">
             <div class="col-md-9">

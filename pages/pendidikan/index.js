@@ -12,11 +12,11 @@ const index = () => {
       </Head>
       <Header />
       <section class="section-offset section-offset--right section-page top">
-        <div class="offset-img">
+        <div data-aos="fade" class="offset-img">
           <img src="/images/UNIMA.jpg" alt="" />
         </div>
         <div class="container">
-          <div class="offset-content">
+          <div data-aos="fade-right" class="offset-content">
             <div class="offset-title section-title">
               <h2>Pendidikan</h2>
             </div>

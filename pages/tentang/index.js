@@ -30,10 +30,10 @@ const Tentang = () => {
       <Header />
       <section class="section-page top sc-about--offright">
         <div class="container">
-          <div class="about-img">
+          <div data-aos="fade" class="about-img">
             <img src="/images/UNIMA.jpg" alt="" />
           </div>
-          <div class="about-content">
+          <div data-aos="fade-right" class="about-content">
             <div class="section-box">
               <div class="section-title">
                 <h2>Tentang UNIMA</h2>

@@ -19,6 +19,7 @@ const Agenda = ({ data }) => {
   const renderAgenda = () => {
     return dataAgenda.map((obj, idx) => (
       <div
+        data-aos="zoom-out"
         className="px-20"
         style={{
           paddingRight: '20px',
@@ -83,14 +84,14 @@ const Agenda = ({ data }) => {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
       />
       <div class="container">
-        <div class="section-title">
+        <div data-aos="fade-down" class="section-title">
           <h3>Agenda Terbaru</h3>
         </div>
         <Slider {...settings} className="event-slider">
           {dataAgenda ? renderAgenda() : <p>Loading...</p>}
         </Slider>
         <div class="text-center btn-box no-border">
-          <Link href="/agenda" class="btn btn-more">
+          <Link data-aos="fade" href="/agenda" class="btn btn-more">
             LIHAT SEMUA AGENDA
           </Link>
         </div>
